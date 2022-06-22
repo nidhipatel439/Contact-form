@@ -1,0 +1,19 @@
+extend layout 
+
+block layout-content
+    section.add-student
+        - var update_url = "/student/update/" + student._id 
+        form(action=update_url method="POST")
+            div.form-detail 
+                label(for="name") Student name:
+                input(type="text" id="name" name="name" value=student.name required)
+            div.form-detail
+                label(for="email") Email: 
+                input(type="email" id="email" name="email" value=student.email required)
+            div.form-detail
+                label(for="contact") Contact No: 
+                input(type="tel" id="contact" name="contact" value=student.contact required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}")
+            div.form-detail.add
+                input(type="submit" value="Update Student")
+        div.cancel
+            a.button(href="/") Cancel

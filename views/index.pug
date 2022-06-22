@@ -1,0 +1,18 @@
+extends layout  
+
+block layout-content
+    section#contact-form
+        h2 Student Lists
+        div.card
+            each student in student_list
+                - var delete_url = "/student/delete/" + student._id
+                - var update_url = "/student/update/" + student._id
+                div.card-detail
+                    div.student-detail
+                        p Student Name: #{student.name}
+                        p Email id: #{student.email}
+                        p Contact no: #{student.contact}
+                        a.button(href= delete_url) Delete
+                        a.button(href=update_url) Update
+        div.add-button
+            a.button(href="/student/add") Add Student

@@ -1,0 +1,18 @@
+extends layout 
+
+block layout-content
+    section.add-student
+        form(action="/student/add" method="POST")
+            div.form-detail
+                label(for="name") Student name:
+                input(type="text" id="name" name="name" placeholder="Enter student name" required)
+            div.form-detail
+                label(for="email") Email: 
+                input(type="email" id="email" name="email" placeholder="Enter email id" required)
+            div.form-detail 
+                label(for="contact") Contact No: 
+                input(type="tel" id="contact" name="contact" placeholder="123-456-7890" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}")
+            div.form-detail.add  
+                input(type="submit" value="Add Student")
+        div.cancel
+            a.button(href="/") Cancel
